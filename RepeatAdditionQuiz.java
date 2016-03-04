@@ -1,25 +1,19 @@
-
-
-import java.util.Scanner;
+//U10416011 謝秉瑾
+import java.util.ArrayList;
 
 public class RepeatAdditionQuiz {
-  public static void main(String[] args) {
     int number1 = (int)(Math.random() * 10);
     int number2 = (int)(Math.random() * 10);
-
-    // Create a Scanner
-    Scanner input = new Scanner(System.in);
-
-    System.out.print(
-      "What is " + number1 + " + " + number2 + "? ");
-    int answer = input.nextInt();
-    
-    while (number1 + number2 != answer) {
-      System.out.print("Wrong answer. Try again. What is " 
-        + number1 + " + " + number2 + "? ");
-      answer = input.nextInt();
+    int answer;
+    ArrayList<Integer> Answers = new ArrayList<>();
+    //arraylist to store answer
+    public boolean checkAnswer() {//check the answer and whether repeat the answer
+    	while (number1 * number2 != answer) {
+            if (Answers.contains(answer)) {
+                System.out.println("You already answered " + answer);
+            }
+            return false;
+        }
+		return true;
     }
-
-    System.out.println("You got it!");
-  }
 }
